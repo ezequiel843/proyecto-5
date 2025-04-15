@@ -1,0 +1,46 @@
+# Lista vacía de autos
+autos = []# Crear lista vacía para almacenar los autos
+
+# Mostrar menú
+def mostrar_menu():# Crear función para mostrar el menú
+    print("\n--- MENÚ ---")# Mostrar encabezado del menú
+    print("1. Ver autos en venta")# Agregar opción para ver autos en venta
+    print("2. Agregar auto")# Agregar opción para agregar un auto
+    print("3. Salir") # Agregar opción para salir del programa
+
+# Ver autos en venta
+def mostrar_autos():# Crear función para mostrar autos en venta
+    if len(autos) == 0:# Verificar si la lista de autos está vacía
+        print("No hay autos en venta.")# Mostrar mensaje si no hay autos en venta
+    else:# Si hay autos en venta, mostrar la lista
+        print("\n--- AUTOS EN VENTA ---")# Mostrar encabezado de la lista
+        for i, auto in enumerate(autos):# Recorrer la lista de autos con índice
+            print(f"{i+1}. Modelo: {auto[0]}, Año: {auto[1]}, Precio: ${auto[2]}")# Mostrar cada auto con su índice
+
+# Agregar un auto
+def agregar_auto():# Crear función para agregar un auto
+    modelo = input("Modelo del auto: ")# Pedir al usuario que ingrese el modelo del auto
+    anio = input("Año del auto: ")# Pedir al usuario que ingrese el año del auto
+    precio = input("Precio del auto: ")# Pedir al usuario que ingrese el precio del auto
+    autos.append((modelo, anio, precio))# Agregar el auto a la lista de autos
+    print("Auto agregado con éxito.")# Mostrar mensaje de éxito
+    mostrar_autos()    # Mostrar la lista actualizada de autos
+    
+
+# Programa principal
+def main():# Crear función principal
+    while True:# Crear bucle infinito para mostrar el menú y procesar opciones
+        mostrar_menu()#  Mostrar el menú
+        opcion = input("Elegí una opción (1-3): ")# Pedir al usuario que ingrese una opción
+        if opcion == "1":# Verificar si la opción es 1
+            mostrar_autos()#    Mostrar autos en venta
+        elif opcion == "2":# Verificar si la opción es 2
+            agregar_auto()#    Agregar un auto
+        elif opcion == "3":# Verificar si la opción es 3
+            print("¡Gracias por usar la app de venta de autos!")# Mostrar mensaje de despedida
+            break#    Salir del bucle y terminar el programa
+        else:# Si la opción no es válida, mostrar mensaje de error
+            print("Opción inválida. Probá otra vez.")# Mostrar mensaje de error
+
+# Ejecutar
+main()# Llamar a la función principal para iniciar el programa
